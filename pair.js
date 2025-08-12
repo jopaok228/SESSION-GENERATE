@@ -6,7 +6,7 @@ const fs = require('fs');
 let router = express.Router()
 const pino = require("pino");
 const {
-    default: Maher_Zubair,
+    default: SCORP_XD,
     useMultiFileAuthState,
     delay,
     makeCacheableSignalKeyStore,
@@ -20,13 +20,13 @@ function removeFile(FilePath){
 router.get('/', async (req, res) => {
     const id = makeid();
     let num = req.query.number;
-        async function SIGMA_MD_PAIR_CODE() {
+        async function SCORP_XD_PAIR_CODE() {
         const {
             state,
             saveCreds
         } = await useMultiFileAuthState('./temp/'+id)
      try {
-            let Pair_Code_By_Maher_Zubair = Maher_Zubair({
+            let Pair_Code_By_SCORP_XD = Maher_Zubair({
                 auth: {
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, pino({level: "fatal"}).child({level: "fatal"})),
@@ -35,16 +35,16 @@ router.get('/', async (req, res) => {
                 logger: pino({level: "fatal"}).child({level: "fatal"}),
                 browser: ["Chrome (Linux)", "", ""]
              });
-             if(!Pair_Code_By_Maher_Zubair.authState.creds.registered) {
+             if(!Pair_Code_By_SCORP_XD.authState.creds.registered) {
                 await delay(1500);
                         num = num.replace(/[^0-9]/g,'');
-                            const code = await Pair_Code_By_Maher_Zubair.requestPairingCode(num)
+                            const code = await Pair_Code_By_SCORP_XD.requestPairingCode(num)
                  if(!res.headersSent){
                  await res.send({code});
                      }
                  }
-            Pair_Code_By_Maher_Zubair.ev.on('creds.update', saveCreds)
-            Pair_Code_By_Maher_Zubair.ev.on("connection.update", async (s) => {
+            Pair_Code_By_SCORP_XD.ev.on('creds.update', saveCreds)
+            Pair_Code_By_SCORP_XD.ev.on("connection.update", async (s) => {
                 const {
                     connection,
                     lastDisconnect
@@ -54,16 +54,16 @@ router.get('/', async (req, res) => {
                 let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
                 await delay(800);
                let b64data = Buffer.from(data).toString('base64');
-               let session = await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: "" + b64data });
+               let session = await Pair_Code_By_SCORP_XD.sendMessage(Pair_Code_By_SCORP_XD.user.id, { text: "" + b64data });
 
-               let SIGMA_MD_TEXT = `
+               let SCORP_XD_TEXT = `
 ┏━━━━━━━━━━━━━━
-┃MASTER MD SESSION IS 
+┃SCORP XD SESSION IS 
 ┃SUCCESSFULLY
 ┃CONNECTED ✅🔥
 ┗━━━━━━━━━━━━━━━
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-❶ || Creator = Sahan / MASTER MIND_👨🏻‍💻
+❶ || Creator = SCORP / MASTER MIND_👨🏻‍💻
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ❷ || WhattsApp Channel = https://whatsapp.com/channel/0029VaWWZa1G3R3c4TPADo0M
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
@@ -74,15 +74,15 @@ router.get('/', async (req, res) => {
 ❻ || FaceBook = https://www.facebook.com/profile.php?id=100089180711131
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ᴄʀᴇᴀᴛᴇᴅ ʙʏ ᴍʀ ꜱᴀʜᴀɴ ᴏꜰᴄ`
- await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id,{text:SIGMA_MD_TEXT},{quoted:session})
+ await Pair_Code_By_SCORP_XD.sendMessage(Pair_Code_By_SCORP_XD.user.id,{text:SCORP_XD_TEXT},{quoted:session})
  
 
         await delay(100);
-        await Pair_Code_By_Maher_Zubair.ws.close();
+        await Pair_Code_By_SCORP_XD.ws.close();
         return await removeFile('./temp/'+id);
             } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10000);
-                    SIGMA_MD_PAIR_CODE();
+                    SCORPION_XD_PAIR_CODE();
                 }
             });
         } catch (err) {
@@ -93,6 +93,6 @@ router.get('/', async (req, res) => {
          }
         }
     }
-    return await SIGMA_MD_PAIR_CODE()
+    return await SCORP_XD_PAIR_CODE()
 });
 module.exports = router
